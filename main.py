@@ -11,9 +11,13 @@ ENTRY = "I deleted nothing important."
 
 # Gate from the competition rules: UTF-8 text, 1 to 88 characters,
 # one to five words, a single line, plain text.
-assert 1 <= len(ENTRY) <= 88, f"entry length {len(ENTRY)} outside 1..88"
-assert 1 <= len(ENTRY.split()) <= 5, f"entry word count {len(ENTRY.split())} outside 1..5"
-assert "\n" not in ENTRY, "entry must be a single line"
+def validate(text):
+    assert 1 <= len(text) <= 88, f"entry length {len(text)} outside 1..88"
+    assert 1 <= len(text.split()) <= 5, f"entry word count {len(text.split())} outside 1..5"
+    assert "\n" not in text, "entry must be a single line"
+
+
+validate(ENTRY)
 
 
 def main():
